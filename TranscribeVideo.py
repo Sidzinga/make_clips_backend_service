@@ -2,7 +2,9 @@ from moviepy import VideoFileClip, TextClip, CompositeVideoClip
 import whisper
 import os
 
-def transcribe_and_highlight(video_path=None, output_path=None, load_video=None,font = "ComicRelief-Bold.ttf"):
+# font = ''
+
+def transcribe_and_highlight(video_path=None, output_path=None, load_video=None,font = "ComicRelief.ttf"):
     # Load video and extract audio
 
     def get_video():
