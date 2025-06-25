@@ -69,7 +69,10 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8037BA1E9F7845619180E7C2BC6B32CC }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FACE731BFBA548E9ACD27889949533EA }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_48866897B2134DA58A6F7906FBF29C2F }}
-
+          
+      - name: Wait before deploy (to avoid deployment conflicts)
+        run: sleep 30
+        
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
@@ -77,3 +80,4 @@ jobs:
           app-name: 'make-clips121821'
           slot-name: 'Production'
           
+                
