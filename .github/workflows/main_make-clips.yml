@@ -68,3 +68,4 @@ jobs:
           app-name: 'make-clips'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3F565819B6D04A66AC52CCB4060DDF9B }}
+          package: release.zip
