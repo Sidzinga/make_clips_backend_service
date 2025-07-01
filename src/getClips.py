@@ -1,14 +1,13 @@
 # from humanfriendly.terminal import output
-from moviepy import VideoFileClip, CompositeVideoClip, vfx, afx
+from moviepy import CompositeVideoClip, vfx, afx
 #     CompositeAudioClip, clips_array
 # import os
 # from TranscribeVideo import transcribe_and_highlight
 # import re
 import cv2
-from sympy.printing.pretty.pretty_symbology import center
-from TranscribeVideo import transcribe_and_highlight
+
+
 # from moviepy.video.fx import Crop
-from EditVideo import remove_black_bars
 
 
 # file = "Static/testing.mp4"
