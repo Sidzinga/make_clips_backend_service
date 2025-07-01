@@ -65,13 +65,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AF7156088E034EDDAB7D67807A8BBB98 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_61FBB29E1A6540B689DE6CB3D7CFA65D }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_78326F8209DF4DA18FE87EFAA4B9496D }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_FA6A99ABB21C4A9988217636DDC6C456 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_7951F6E487CC4E5AB4A1AF3D19B0089C }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0BF45641456543C3A532ADCDC1E891F3 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'make-clips'
-          slot-name: 'Production'   
+          slot-name: 'Production'
+          
