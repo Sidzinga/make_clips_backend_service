@@ -35,7 +35,7 @@ jobs:
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip . -x "venv/*" "venv/**" ".git/*" ".git/**" ".github/*" ".github/**" "README.md" "__pycache__/*" "__pycache__/**" ".idea/*" ".idea/**" "*.gitignore"
+        run: zip -r release.zip "app.py" "makeVid.py" "getClips.py"
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
