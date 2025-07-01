@@ -75,4 +75,5 @@ jobs:
         with:
           app-name: 'make-clips'
           slot-name: 'Production'
+          package: release.zip
           
