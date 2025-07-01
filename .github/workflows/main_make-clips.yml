@@ -35,7 +35,7 @@ jobs:
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip . -x "venv/*" "venv/**" ".git/*" ".git/**" ".github/*" ".github/**" "__pycache__/*" "__pycache__/**" ".idea/*" ".idea/**" "*.gitignore"
+        run: zip -r release.zip . -x "venv/*" "venv/**" ".git/*" ".git/**" ".github/*" ".github/**" "Readme.md" "__pycache__/*" "__pycache__/**" ".idea/*" ".idea/**" "*.gitignore"
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
@@ -60,7 +60,7 @@ jobs:
 
       
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v4
         id: deploy-to-webapp
         with:
           app-name: 'make-clips'
