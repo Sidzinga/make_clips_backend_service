@@ -35,8 +35,7 @@ jobs:
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        run: |
-          zip -r release.zip . -x "venv/*" ".venv/*" "__pycache__/*" ".git/*" ".github/*" "tests/*" ".env" "*.env" ".vscode/*" ".idea/*"
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
@@ -49,7 +48,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    
+    permissions:
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -60,10 +62,17 @@ jobs:
         run: unzip release.zip
 
       
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B4C1B51ADCDF4F1EB4636830ECD77B7E }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3F99C2353C434769ACD9F2085745BE6D }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0480D55284094092A74C4CB6C0D5E987 }}
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'make-clips'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6BBC9103F3A849B18AEC004FD3468C8D }}
+          
