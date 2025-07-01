@@ -74,5 +74,4 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'make-clips'
-          slot-name: 'Production'
-          
+          slot-name: 'Production'   
