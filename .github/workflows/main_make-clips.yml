@@ -64,5 +64,5 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'make-clips'
-          slot-name: 'Production'
+          # slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6BBC9103F3A849B18AEC004FD3468C8D }}
