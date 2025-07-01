@@ -40,10 +40,7 @@ jobs:
 
       - name: Zip artifact for deployment
         run: |
-          cd src
-          zip -r ../release.zip . 
-          cd ..
-          zip -g release.zip requirements.txt
+          zip -r release.zip . -x venv/\* .git/\* .github/\* "*.gitignore" ".idea" "README.md"
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
